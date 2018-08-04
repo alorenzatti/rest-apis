@@ -1,0 +1,128 @@
+API - Application Programming Interface
+- A user interface to data and systems that is consumed by applications rather than humans.
+- Contract is well defined between provider and consumer
+- Year 2003
+-- SOAP - Simple Object Access Protocol emerges
+--- It is based on XML
+
+- JSON - Java Script Object Notation - 2002
+-- Comes to solve the issues regarding XML file exchanges
+
+- REST - Representational State Transfer
+-- Google: "api <company name>"
+-- Is not a standard but an architectural style
+-- May use HTTP but it is not required
+
+- Types os APIs
+-- Consumers
+--- Internal
+--- Public or External
+--- Partner
+
+- API Security
+-- Trusted Developers
+--- Basic Auth
+--- Proprietary Schemes
+-- Public or Partner Developers
+--- Cannot be trusted
+--- Key
+--- OAuth
+
+- SLA Management
+-- SLA - Service Level Agreement
+-- Management of QA attributes when providing the API to the external public
+-- It is good to monitor the quality attributes of the API
+
+- REST Architectural Constraints - 6 Rules
+-- 1. Client - Server
+--- Separation of concerns
+---- Server
+----- Performance
+----- Scaling
+----- Authentication and Authorization
+----- Data Cache
+----- Data Security
+----- Database
+---- Client
+----- User Experience
+----- User Interface
+----- Multi form factor support
+--- Client and Server code are decoupled 
+-- 2. Uniform Interface
+--- Client and Server share a common technical interface
+--- No business context
+--- Identity of the resource
+--- Representation of the resource (XML, JSON)
+--- Self descriptive messages - metadata
+---- Accept: application/json
+--- Hypermedia
+---- Links the client can use to access resources
+-- 3. Statelessness
+--- Client state management inside the server is not acceptable
+--- Problems
+---- Negative impact on performance
+---- Chattines
+---- Higher data traffic
+-- 4. Caching
+--- Counterbalances some of the problems of statelessness
+--- Is controlled by the server using HTTP headers to say if data is cacheable
+--- Cache control
+--- Expires
+--- Last-Modified
+--- ETag
+-- 5. Layered System
+--- Client-Server architecture consist of multiple layers
+--- Clients must never connect directly to the app server but only to some load balancer or gateway
+-- 6. Code on demand (optional)
+--- Server can send code to be executed by the client
+--- Is it better to optimize which features the client is using?
+-- Richardson Maturity model
+--- Guide to evaluate the maturity of RESTFull architecture
+--- LeveL 0 - POX - Plain Old XML
+--- Level 1 - Collection of resources accessible throughout the Internet, for example
+--- Level 2 - HTTP methods to manipulate the collection of resources
+--- Level 3 - Hypermedia Controls  - links with actions to execute tasks
+---- HATEOAS - Hypermedia As The Engine Of Application State
+
+- Common Sense Design Principles
+-- Un-Ambiguous Design
+-- Design for Simplicity
+-- Stay Consistent
+
+- Practices for Resource Names, Actions & Associations
+-- Base URL
+-- Version
+-- Resource
+-- Avoid using www.domain for apis
+-- Keep base URL simple
+-- If possible, use a subdomain
+-- If possible use separate domain
+-- Use nouns to identify resources
+-- Use plural for resource names
+-- Avoid nesting more than 3 levels
+
+- Implementing REST API CRUD
+-- API constracts define:
+--- HTTP Methods/Verbs
+---- POST -> Create
+---- GET -> Read or Retrieve
+---- PUT, PATCH -> Update
+----- PUT is used to replace an existing resource. In this case, all its attributes are updated
+----- PATCH is used to update one or more attributes, but not all attributes of the resource
+---- DELETE -> Delete
+--- HTTP status codes
+---- 3 digit number
+---- 1xx -> Informational
+---- 2xx -> Success
+---- 3xx -> Redirection
+---- 4xx -> Client error
+---- 5xx -> Server error
+---- RFC2616
+--- Accepted representation formats. Indicate the format as:
+---- Query parameter
+---- HTTP Header Accept attribute. Not so common
+---- Resource format suffix: "programmes/schecules/fm/today.json"
+---- Most common format: json
+---- HTTP status code = 415 Requested format not supported
+
+- Creating APIs Demo
